@@ -6,10 +6,6 @@
   box-sizing: border-box;
 }
 
-#root {
-  font-family: 'Nunito Sans', sans-serif !important;
-}
-
 body,
 h1,
 h2,
@@ -35,7 +31,8 @@ html:focus-within {
 }
 
 body {
-  font-family: 'Nunito Sans', sans-serif !important;
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: $black;
 }
 
 a {

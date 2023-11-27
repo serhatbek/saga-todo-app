@@ -1,0 +1,36 @@
+@import '../../assets/css/settings/colors';
+
+.float-label {
+  width: 100%;
+  position: relative;
+
+  .label {
+    font-size: 14px;
+    line-height: 1.29;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 16px;
+    top: 10px;
+    transition: 0.2s ease all;
+    color: $text-2;
+    z-index: 1;
+  }
+  .label-float {
+    top: 2px;
+    font-size: 12px;
+  }
+
+  .ant-input {
+    height: 100%;
+    border: none;
+    color: $text;
+    padding-top: 8px;
+    background-color: $border;
+
+    &:focus,
+    &-focused {
+      border: none;
+    }
+  }
+}
