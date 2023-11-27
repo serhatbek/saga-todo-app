@@ -1,13 +1,11 @@
 import 'antd/dist/antd.css';
 import './assets/css/styles.scss';
-import AddTodoItem from './components/AddTodoItem/AddTodoItem';
+import TodoContainer from './components/TodoContainer/TodoContainer';
 
 function App() {
   return (
     <>
-      <div className='container flex flex--align flex--justify'>
-        <AddTodoItem />
-      </div>
+      <TodoContainer />
     </>
   );
 }
