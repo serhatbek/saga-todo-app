@@ -1,5 +1,14 @@
+@import '../../assets/css/settings/colors';
+
 .add-todo {
   display: flex;
   max-width: 700px;
   width: 100%;
+  background: rgba(135, 138, 161, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 3px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
