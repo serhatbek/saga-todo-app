@@ -24,14 +24,17 @@
 
   .ant-input {
     height: 100%;
-    border: none;
     color: $text;
     padding-top: 8px;
     background-color: $border;
+    outline: none;
+    border: none;
 
     &:focus,
     &-focused {
       border: none;
+      outline: none;
+      box-shadow: none;
     }
   }
 }

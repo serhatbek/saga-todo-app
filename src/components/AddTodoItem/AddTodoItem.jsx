@@ -7,14 +7,12 @@ import { useState } from 'react';
 const AddTodoItem = () => {
   const [inputValue, setInputValue] = useState('');
 
-  // Event handler to handle input change
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
-  // Event handler to clear input on blur
   const handleInputBlur = () => {
-    setInputValue(''); // Clear input value on blur
+    setInputValue('');
   };
 
   return (
