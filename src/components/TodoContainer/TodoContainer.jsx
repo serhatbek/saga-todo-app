@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 const TodoContainer = () => {
   const { todoList } = useSelector((state) => state.allTodoItems);
+  console.log(todoList);
 
   return (
     <div className='todo-container container flex flex--col flex--align flex--justify'>
@@ -12,7 +13,7 @@ const TodoContainer = () => {
       <div className='box background'>
         {todoList.map((todo) => {
           const { text, id } = todo;
-          return <TodoItem key={id} todoClass='flex' text={text} />;
+          return <TodoItem key={id} todoClass='flex' {...todo} />;
         })}
       </div>
     </div>

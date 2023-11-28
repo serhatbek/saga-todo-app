@@ -14,15 +14,17 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+  //   console.log('state', state);
+  let newTodoList;
   switch (action.type) {
-    case actions.SET_TODO: {
-      return { ...state, todoList: action.payload };
-    }
+    case actions.ADD_TODO_SAGA:
+      newTodoList = [...state];
+      newTodoList.push(action.payload);
+      return newTodoList;
 
-    case actions.SET_DELETE_TODO: {
-      return { ...state, todoList: action.payload };
-    }
-
+    case actions.DELETE_TODO_SAGA:
+      newTodoList = state.todoList.filter((todo) => todo.id !== action.payload);
+      return { ...state, todoList: newTodoList };
     default:
       return state;
   }

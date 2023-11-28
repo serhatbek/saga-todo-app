@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button as ButtonAntd } from 'antd';
 
-const Button = ({ iconLeft, iconRight, ...props }) => {
+const Button = ({ btnAction, iconLeft, iconRight, ...props }) => {
   return (
     <ButtonAntd
+      onClick={btnAction}
       className={classNames(props.className, {
         'ant-btn--left-icon': iconLeft,
         'ant-btn--right-icon': iconRight,
