@@ -16,14 +16,21 @@ const AddTodoItem = () => {
   };
 
   const handleAddTodo = () => {
-    dispatch(
-      addTodo({
-        id: nanoid(),
-        text: inputValue,
-      })
-    );
-
+    if (inputValue.trim() !== '') {
+      dispatch(
+        addTodo({
+          id: nanoid(),
+          text: inputValue,
+        })
+      );
+    }
     setInputValue('');
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleAddTodo();
+    }
   };
 
   return (
@@ -31,6 +38,7 @@ const AddTodoItem = () => {
       <Input
         value={inputValue}
         onChange={handleInputChange}
+        onKeyPress={handleKeyPress}
         placeholder='Add todo'
       />
       <Button btnAction={handleAddTodo} iconLeft={<IoMdAddCircle />}>
