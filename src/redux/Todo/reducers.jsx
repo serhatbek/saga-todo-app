@@ -14,12 +14,11 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  //   console.log('state', state);
   let newTodoList;
+
   switch (action.type) {
     case actions.ADD_TODO_SAGA:
-      newTodoList = [...state];
-      newTodoList.push(action.payload);
+      newTodoList = state.todoList.push(action.payload);
       return newTodoList;
 
     case actions.DELETE_TODO_SAGA:

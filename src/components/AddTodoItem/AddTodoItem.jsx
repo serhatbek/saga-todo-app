@@ -5,6 +5,7 @@ import './AddTodoItem.scss';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
+import { addTodo } from '../../redux/Todo/actions';
 
 const AddTodoItem = () => {
   const [inputValue, setInputValue] = useState('');
@@ -15,12 +16,15 @@ const AddTodoItem = () => {
   };
 
   const handleAddTodo = () => {
-    dispatch();
-    {
-      id: nanoid();
-      text: inputValue;
-    }
+    dispatch(
+      addTodo({
+        id: nanoid(),
+        text: inputValue,
+      })
+    );
+
     setInputValue('');
+    console.log('add', inputValue);
   };
 
   return (
@@ -30,7 +34,9 @@ const AddTodoItem = () => {
         onChange={handleInputChange}
         placeholder='Add todo'
       />
-      <Button iconLeft={<IoMdAddCircle />}>ADD</Button>
+      <Button btnAction={handleAddTodo} iconLeft={<IoMdAddCircle />}>
+        ADD
+      </Button>
     </div>
   );
 };

@@ -11,10 +11,14 @@ const TodoContainer = () => {
     <div className='todo-container container flex flex--col flex--align flex--justify'>
       <AddTodoItem />
       <div className='box background'>
-        {todoList.map((todo) => {
-          const { text, id } = todo;
-          return <TodoItem key={id} todoClass='flex' {...todo} />;
-        })}
+        {todoList.length > 0 ? (
+          todoList.map((todo) => {
+            const { text, id } = todo;
+            return <TodoItem key={id} todoClass='flex' {...todo} />;
+          })
+        ) : (
+          <p className='empty'>Add new tasks...</p>
+        )}
       </div>
     </div>
   );

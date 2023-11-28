@@ -1,9 +1,17 @@
+@import '../../assets/css/settings/colors';
+
 .todo-container {
   .box {
     margin: 25px 0;
 
     .todo-item:not(:last-child) {
       margin-bottom: 10px;
+    }
+
+    .empty {
+      color: $text;
+      font-size: 18px;
+      font-weight: 600;
     }
   }
 }
