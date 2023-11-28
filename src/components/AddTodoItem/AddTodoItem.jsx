@@ -24,7 +24,6 @@ const AddTodoItem = () => {
     );
 
     setInputValue('');
-    console.log('add', inputValue);
   };
 
   return (

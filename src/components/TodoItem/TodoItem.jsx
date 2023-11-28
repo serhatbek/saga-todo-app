@@ -10,7 +10,6 @@ const TodoItem = ({ text, id, todoClass }) => {
 
   const handleDelete = (todoID) => {
     dispatch(deleteTodo({ id: todoID }));
-    console.log(todoID);
   };
 
   return (
@@ -19,7 +18,6 @@ const TodoItem = ({ text, id, todoClass }) => {
       <Button
         btnAction={() => handleDelete(id)}
         iconLeft={<RiDeleteBin6Fill />}
-        // onClick={() => handleDelete(id)}
       >
         Delete
       </Button>
