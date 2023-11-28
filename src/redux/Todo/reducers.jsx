@@ -4,11 +4,11 @@ const initialState = {
   todoList: [
     {
       id: 1,
-      name: 'Kiss Luna',
+      text: 'Kiss Luna',
     },
     {
       id: 2,
-      name: 'Hug Luna',
+      text: 'Hug Luna',
     },
   ],
 };

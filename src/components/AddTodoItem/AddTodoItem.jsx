@@ -3,15 +3,23 @@ import { IoMdAddCircle } from 'react-icons/io';
 import Input from '../Input/Input';
 import './AddTodoItem.scss';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { nanoid } from 'nanoid';
 
 const AddTodoItem = () => {
   const [inputValue, setInputValue] = useState('');
+  const dispatch = useDispatch();
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
-  const handleInputBlur = () => {
+  const handleAddTodo = () => {
+    dispatch();
+    {
+      id: nanoid();
+      text: inputValue;
+    }
     setInputValue('');
   };
 
@@ -20,8 +28,6 @@ const AddTodoItem = () => {
       <Input
         value={inputValue}
         onChange={handleInputChange}
-        onBlur={handleInputBlur}
-        className='input'
         placeholder='Add todo'
       />
       <Button iconLeft={<IoMdAddCircle />}>ADD</Button>
