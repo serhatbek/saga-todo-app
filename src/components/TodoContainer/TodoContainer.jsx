@@ -2,6 +2,7 @@ import './TodoContainer.scss';
 import AddTodoItem from '../AddTodoItem/AddTodoItem';
 import TodoItem from '../todoItem/todoItem';
 import { useSelector } from 'react-redux';
+import TodoFooter from '../TodoFooter/TodoFooter';
 
 const TodoContainer = () => {
   const { todoList } = useSelector((state) => state.allTodoItems);
@@ -19,6 +20,7 @@ const TodoContainer = () => {
           <p className='empty'>Add new tasks...</p>
         )}
       </div>
+      <TodoFooter />
     </div>
   );
 };

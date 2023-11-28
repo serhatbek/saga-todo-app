@@ -1,5 +1,5 @@
 import { takeLatest, put, all, call } from 'redux-saga/effects';
-import { addTodoSaga, deleteTodoSaga } from './actions';
+import { addTodoSaga, deleteAllSaga, deleteTodoSaga } from './actions';
 
 export function* onAddTodoSaga({ payload }) {
   yield put(addTodoSaga(payload));
@@ -15,4 +15,12 @@ export function* onDeleteTodoSaga({ payload: { id } }) {
 
 export function* onDelete() {
   yield takeLatest('DELETE_TODO', onDeleteTodoSaga);
+}
+
+export function* onDeleteAllTodoSaga() {
+  yield put(deleteAllSaga());
+}
+
+export function* onDeleteAll() {
+  yield takeLatest('DELETE_ALL_TODO', onDeleteAllTodoSaga);
 }
