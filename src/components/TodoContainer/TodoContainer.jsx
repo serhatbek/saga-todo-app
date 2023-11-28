@@ -7,7 +7,10 @@ const TodoContainer = () => {
     <div className='todo-container container flex flex--col flex--align flex--justify'>
       <AddTodoItem />
       <div className='box background'>
-        <TodoItem />
+        <TodoItem todoClass='flex' text={'Hug Luna'} />
+        <TodoItem todoClass='flex' text={'Hug Luna'} />
+        <TodoItem todoClass='flex' text={'Hug Luna'} />
+        <TodoItem todoClass='flex' text={'Hug Luna'} />
       </div>
     </div>
   );
