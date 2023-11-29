@@ -34,7 +34,7 @@ const AddTodoItem = () => {
   };
 
   return (
-    <div className='add-todo'>
+    <div className='add-todo background'>
       <Input
         value={inputValue}
         onChange={handleInputChange}
