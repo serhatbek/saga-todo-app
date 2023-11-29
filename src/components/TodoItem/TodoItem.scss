@@ -5,4 +5,10 @@
   background-color: $gray;
   justify-content: space-between;
   align-items: center;
+
+  &__actions {
+    .ant-btn svg {
+      margin-right: 0;
+    }
+  }
 }

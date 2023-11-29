@@ -30,6 +30,7 @@
   }
 
   .ant-checkbox-checked + span {
+    color: $text-2;
     text-decoration: line-through;
   }
 }
