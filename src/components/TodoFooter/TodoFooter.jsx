@@ -10,7 +10,6 @@ const TodoFooter = () => {
 
   const handleClearAll = () => {
     dispatch(deleteAll());
-    console.log('delete all');
   };
 
   return (

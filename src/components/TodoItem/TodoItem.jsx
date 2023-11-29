@@ -1,26 +1,56 @@
 import './TodoItem.scss';
 import Button from '../Button/Button';
-import { RiDeleteBin6Fill } from 'react-icons/ri';
+import { RiDeleteBin6Fill, RiEditBoxFill, RiEdit2Fill } from 'react-icons/ri';
 import Checkbox from '../Checkbox/Checkbox';
 import { useDispatch } from 'react-redux';
-import { deleteTodo } from '../../redux/Todo/actions';
+import { deleteTodo, editTodo } from '../../redux/Todo/actions';
+import { useState } from 'react';
+import Input from '../Input/Input';
 
-const TodoItem = ({ text, id, todoClass }) => {
+const TodoItem = ({ todo, todoClass }) => {
+  const { text, id } = todo;
+  const [edit, setEdit] = useState(false);
+  const [name, setName] = useState(text);
   const dispatch = useDispatch();
 
   const handleDelete = (todoID) => {
     dispatch(deleteTodo({ id: todoID }));
   };
 
+  const handleEdit = (e) => {
+    setName(text);
+    if (edit) {
+      dispatch(
+        editTodo({
+          ...todo,
+          text: name,
+        })
+      );
+    }
+    setEdit(!edit);
+  };
+
+  const handleChange = (e) => {
+    setName(e.target.value);
+  };
+
   return (
     <div className={`todo-item ${todoClass ? todoClass : ''}`}>
-      <Checkbox label={text} />
-      <Button
-        btnAction={() => handleDelete(id)}
-        iconLeft={<RiDeleteBin6Fill />}
-      >
-        Delete
-      </Button>
+      {edit ? (
+        <Input value={name} onChange={handleChange} />
+      ) : (
+        <Checkbox label={text} />
+      )}
+      <div className='todo-item__actions flex'>
+        <Button
+          btnAction={handleEdit}
+          iconLeft={edit ? <RiEdit2Fill /> : <RiEditBoxFill />}
+        ></Button>
+        <Button
+          btnAction={() => handleDelete(id)}
+          iconLeft={<RiDeleteBin6Fill />}
+        ></Button>
+      </div>
     </div>
   );
 };

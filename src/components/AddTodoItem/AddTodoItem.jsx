@@ -40,7 +40,7 @@ const AddTodoItem = () => {
         value={inputValue}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
-        placeholder='Add todo'
+        placeholder='Add Task'
       />
       <Button btnAction={handleAddTodo} iconLeft={<IoMdAddCircle />}>
         ADD

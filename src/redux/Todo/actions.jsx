@@ -3,6 +3,8 @@ const actions = {
   ADD_TODO_SAGA: 'ADD_TODO_SAGA',
   DELETE_TODO: 'DELETE_TODO',
   DELETE_TODO_SAGA: 'DELETE_TODO_SAGA',
+  EDIT_TODO: 'EDIT_TODO',
+  EDIT_TODO_SAGA: 'EDIT_TODO_SAGA',
   DELETE_ALL_TODO: 'DELETE_ALL_TODO',
   DELETE_ALL_TODO_SAGA: 'DELETE_ALL_TODO_SAGA',
 };
@@ -27,6 +29,16 @@ export const deleteTodo = (id) => ({
 export const deleteTodoSaga = (id) => ({
   type: actions.DELETE_TODO_SAGA,
   payload: id,
+});
+
+export const editTodo = (todo) => ({
+  type: actions.EDIT_TODO,
+  payload: todo,
+});
+
+export const editTodoSaga = (todo) => ({
+  type: actions.EDIT_TODO_SAGA,
+  payload: todo,
 });
 
 export const deleteAll = () => ({

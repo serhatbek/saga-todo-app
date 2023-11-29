@@ -14,7 +14,7 @@ const TodoContainer = () => {
         {todoList?.length > 0 ? (
           todoList?.map((todo) => {
             const { text, id } = todo;
-            return <TodoItem key={id} todoClass='flex' {...todo} />;
+            return <TodoItem key={id} todoClass='flex' todo={todo} />;
           })
         ) : (
           <p className='empty'>Add new tasks...</p>

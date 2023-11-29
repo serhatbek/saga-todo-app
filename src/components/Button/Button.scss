@@ -8,7 +8,7 @@
   height: 40px;
   background-color: $purple;
   color: $text;
-  border: none;
+  border: 1px solid $purple-light;
 
   &:hover,
   &:active,
