@@ -5,8 +5,6 @@ const initialState = {
   todoList: JSON.parse(localStorage.getItem('todoList')) || [],
 };
 
-console.log(JSON.parse(localStorage.getItem('todoList')));
-
 const reducer = (state = initialState, action) => {
   let newTodoList;
 

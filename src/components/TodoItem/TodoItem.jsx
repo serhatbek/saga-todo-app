@@ -4,7 +4,7 @@ import { RiDeleteBin6Fill, RiEditBoxFill, RiEdit2Fill } from 'react-icons/ri';
 import Checkbox from '../Checkbox/Checkbox';
 import { useDispatch } from 'react-redux';
 import { deleteTodo, editTodo } from '../../redux/Todo/actions';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Input from '../Input/Input';
 
 const TodoItem = ({ todo, todoClass }) => {
@@ -34,10 +34,35 @@ const TodoItem = ({ todo, todoClass }) => {
     setName(e.target.value);
   };
 
+  useEffect(() => {
+    if (edit) {
+      document.addEventListener('mousedown', handleClickOutside);
+
+      return () =>
+        document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [edit]);
+
+  const handleClickOutside = (e) => {
+    if (edit && e.target.tagName !== 'INPUT') {
+      handleEdit();
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleEdit();
+    }
+  };
+
   return (
     <div className={`todo-item ${todoClass ? todoClass : ''}`}>
       {edit ? (
-        <Input value={name} onChange={handleChange} />
+        <Input
+          value={name}
+          onKeyPress={handleKeyPress}
+          onChange={handleChange}
+        />
       ) : (
         <Checkbox label={text} />
       )}
