@@ -6,7 +6,7 @@ I've completed a todo task management application to practice and strengthen my 
 
 Adding New Tasks: Enter the task details and press enter or click on the "Add" button to include it in your todo list.
 
-Editing Tasks: Click on the edit icon button and it will become editable. Update the details and press enter to save changes or click elsewhere on the screen to exit editing mode or click edit icon again.
+Editing Tasks: Click on the edit icon button and it will become editable. Update the details and press enter to save changes or click elsewhere on the screen to exit editing mode.
 
 Deleting Tasks: Remove a task by clicking on the "Delete" button beside each task.
 

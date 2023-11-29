@@ -34,15 +34,6 @@ const TodoItem = ({ todo, todoClass }) => {
     setName(e.target.value);
   };
 
-  useEffect(() => {
-    if (edit) {
-      document.addEventListener('mousedown', handleClickOutside);
-
-      return () =>
-        document.removeEventListener('mousedown', handleClickOutside);
-    }
-  }, [edit]);
-
   const handleClickOutside = (e) => {
     if (edit && e.target.tagName !== 'INPUT') {
       handleEdit();
@@ -54,6 +45,15 @@ const TodoItem = ({ todo, todoClass }) => {
       handleEdit();
     }
   };
+
+  useEffect(() => {
+    if (edit) {
+      document.addEventListener('mousedown', handleClickOutside);
+
+      return () =>
+        document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [edit]);
 
   return (
     <div className={`todo-item ${todoClass ? todoClass : ''}`}>

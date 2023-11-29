@@ -1,6 +1,13 @@
 @import '../../assets/css/settings/colors';
 
 .todo-container {
+  h2 {
+    color: $text;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 3px;
+  }
+
   .box {
     margin: 25px 0;
 
