@@ -2,6 +2,8 @@
 
 I've completed a todo task management application to practice and strengthen my skills in frontend development and state management with redux-saga.
 
+You can check the live demo [here](https://serhatbek.github.io/saga-todo-app/).
+
 ## Usage
 
 Adding New Tasks: Enter the task details and press enter or click on the "Add" button to include it in your todo list.
