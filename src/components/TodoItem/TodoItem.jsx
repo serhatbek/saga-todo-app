@@ -3,9 +3,9 @@ import Button from '../Button/Button';
 import { RiDeleteBin6Fill, RiEditBoxFill, RiEdit2Fill } from 'react-icons/ri';
 import Checkbox from '../Checkbox/Checkbox';
 import { useDispatch } from 'react-redux';
-import { deleteTodo, editTodo } from '../../redux/Todo/actions';
 import { useEffect, useState } from 'react';
 import Input from '../Input/Input';
+import actions from '../../redux/actions';
 
 const TodoItem = ({ todo, todoClass }) => {
   const { text, id } = todo;
@@ -14,18 +14,19 @@ const TodoItem = ({ todo, todoClass }) => {
   const dispatch = useDispatch();
 
   const handleDelete = (todoID) => {
-    dispatch(deleteTodo({ id: todoID }));
+    dispatch({ type: actions.DELETE_TODO, payload: { id: todoID } });
   };
 
   const handleEdit = (e) => {
     setName(text);
     if (edit) {
-      dispatch(
-        editTodo({
+      dispatch({
+        type: actions.EDIT_TODO,
+        payload: {
           ...todo,
           text: name,
-        })
-      );
+        },
+      });
     }
     setEdit(!edit);
   };
