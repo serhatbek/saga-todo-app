@@ -2,19 +2,21 @@ import { useSelector } from 'react-redux';
 import Button from '../Button/Button';
 import './TodoFooter.scss';
 import { useDispatch } from 'react-redux';
-import { deleteAll } from '../../redux/Todo/actions';
+import actions from '../../redux/actions';
 
 const TodoFooter = () => {
-  const { todoList } = useSelector((state) => state.allTodoItems);
+  const { allTodoItems } = useSelector((state) => state.Todo);
   const dispatch = useDispatch();
 
   const handleClearAll = () => {
-    dispatch(deleteAll());
+    dispatch({
+      type: actions.DELETE_ALL_TODO,
+    });
   };
 
   return (
     <div className='todo-footer flex flex--align background'>
-      <p>{todoList?.length} items left</p>
+      <p>{allTodoItems?.length} items left</p>
       <Button btnAction={handleClearAll}>Clear All</Button>
     </div>
   );
