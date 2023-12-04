@@ -1,39 +1,46 @@
-import { takeLatest, put, all, call } from 'redux-saga/effects';
-import {
-  addTodoSaga,
-  deleteAllSaga,
-  deleteTodoSaga,
-  editTodoSaga,
-} from './actions';
+import { all, takeEvery, put } from 'redux-saga/effects';
+import actions from './actions';
+
+const addTodoSaga = (todo) => ({
+  type: actions.ADD_TODO_SAGA,
+  payload: todo,
+});
+
+const deleteTodoSaga = (id) => ({
+  type: actions.DELETE_TODO_SAGA,
+  payload: id,
+});
+
+const editTodoSaga = (todo) => ({
+  type: actions.EDIT_TODO_SAGA,
+  payload: todo,
+});
+
+const deleteAllTodoSaga = () => ({
+  type: actions.DELETE_ALL_TODO_SAGA,
+});
 
 export function* onAddTodoSaga({ payload }) {
   yield put(addTodoSaga(payload));
-}
-
-export function* onAdd() {
-  yield takeLatest('ADD_TODO', onAddTodoSaga);
 }
 
 export function* onDeleteTodoSaga({ payload: { id } }) {
   yield put(deleteTodoSaga(id));
 }
 
-export function* onDelete() {
-  yield takeLatest('DELETE_TODO', onDeleteTodoSaga);
-}
-
 export function* onEditTodoSaga({ payload }) {
   yield put(editTodoSaga(payload));
 }
 
-export function* onEdit() {
-  yield takeLatest('EDIT_TODO', onEditTodoSaga);
-}
-
 export function* onDeleteAllTodoSaga() {
-  yield put(deleteAllSaga());
+  yield put(deleteAllTodoSaga());
 }
 
-export function* onDeleteAll() {
-  yield takeLatest('DELETE_ALL_TODO', onDeleteAllTodoSaga);
+export default function* rootSaga() {
+  yield all([
+    takeEvery(actions.ADD_TODO, onAddTodoSaga),
+    takeEvery(actions.DELETE_TODO, onDeleteTodoSaga),
+    takeEvery(actions.EDIT_TODO, onEditTodoSaga),
+    takeEvery(actions.DELETE_ALL_TODO, onDeleteAllTodoSaga),
+  ]);
 }
