@@ -5,7 +5,7 @@ import './AddTodoItem.scss';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { addTodo } from '../../redux/Todo/actions';
+import actions from '../../redux/actions';
 
 const AddTodoItem = () => {
   const [inputValue, setInputValue] = useState('');
@@ -17,12 +17,13 @@ const AddTodoItem = () => {
 
   const handleAddTodo = () => {
     if (inputValue.trim() !== '') {
-      dispatch(
-        addTodo({
+      dispatch({
+        type: actions.ADD_TODO,
+        payload: {
           id: nanoid(),
           text: inputValue,
-        })
-      );
+        },
+      });
     }
     setInputValue('');
   };
